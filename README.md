@@ -9,5 +9,4 @@ Projeto com Apache, PHP e Mysql para substituir a Localweb e implantar as págin
 * ./www
 * ./apache/sites-available
 * ./apache/log
-* ./apache/php
 * ./data/persistent
