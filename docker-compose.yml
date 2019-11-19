@@ -4,11 +4,16 @@ services:
     www:
         container_name: www
         build: .
+        restart: always
         ports: 
             - "80:80"
+            - "443:443"
         volumes:
             - ./www:/var/www/html/
             - ./apache/sites-available:/etc/apache2/sites-available
+            - ./apache/sites-enabled:/etc/apache2/sites-enabled
+            - ./apache/letsencrypt:/etc/letsencrypt
+            - ./apache/lib-letsencrypt:/var/lib/letsencrypt
             - ./apache/log:/var/log/apache2
         links:
             - db
