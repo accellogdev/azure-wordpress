@@ -1,8 +1,8 @@
 version: "3.1"
 
 services:
-    www:
-        container_name: www
+    marketing:
+        container_name: marketing
         build: .
         restart: always
         ports: 

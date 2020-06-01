@@ -1,4 +1,4 @@
-FROM php:7.2-apache AS www
+FROM php:7.2-apache AS marketing
 
 LABEL maintainer="gustavo@accellog.com"
 
@@ -18,6 +18,12 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install -y zlib1g-dev \
     && docker-php-ext-install zip
+
+# Instalando ImageMagick
+RUN apt-get update \
+    && apt-get install -y libmagickwand-dev --no-install-recommends \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
 
 # módulo necessário para redirecionar para HTTPS
 RUN a2enmod rewrite \
